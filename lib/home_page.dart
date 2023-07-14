@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventory_managnment_system/add_product.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -39,18 +40,26 @@ class HomePage extends StatelessWidget {
                   )),
                   SizedBox(width: gape),
                   Expanded(
+                    child: InkWell(
+                      onTap:() => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context) => 
+                        AddProduct(),)
+                      ),
                       child: HomePageCard(
-                    widget: Column(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/delivery.png', color: Colors.white),
-                        ),
-                        SizedBox(height: gape),
-                        Expanded(child: Text('Product List', style: mainTextStyle)),
-                      ],
+                      widget: Column(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset('assets/delivery.png', color: Colors.white),
+                          ),
+                          SizedBox(height: gape),
+                          Expanded(child: Text('Add Product', style: mainTextStyle)),
+                        ],
+                      ),
                     ),
-                  )),
+                    ),
+                  ),
                 ],
               ),
             ),
