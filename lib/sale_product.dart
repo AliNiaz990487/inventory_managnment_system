@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+
 const TextStyle mainTextStyle = TextStyle(
   fontSize: 15,
-  fontWeight: FontWeight.bold
-);
-class AddProduct extends StatelessWidget{
-  const AddProduct({super.key});
-  final double gape = 20;
+  fontWeight: FontWeight.bold);
+class SaleProduct extends StatelessWidget{
+  const SaleProduct({super.key});
+  final double gape = 30;
   @override 
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add Product"), 
+        title: const Text("Sale Product"), 
         backgroundColor: const Color.fromARGB(255, 15, 108, 184),
         actions: const [
           IconButton(onPressed: null, 
@@ -22,9 +22,7 @@ class AddProduct extends StatelessWidget{
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(children:[
-            SizedBox(height: gape,),
-            const PickImage(),
-            SizedBox(height: gape,),
+            SizedBox(height: gape+5,),
             const DataEntry(mainText: 'Product Name', hintText: 'Ex: Pen'),
             SizedBox(height: gape,),
             const DataEntry(mainText: 'Product Price', hintText: 'Ex:4.50'),
@@ -33,49 +31,12 @@ class AddProduct extends StatelessWidget{
             SizedBox(height: gape,),
             const DataEntry(mainText: 'Date', hintText: 'Tap to Select'),
             SizedBox(height: gape,),
-            const DataEntry(mainText: 'Supplier', hintText: 'Ex: Ali Niaz'),
+            const DataEntry(mainText: 'Customer Name', hintText: 'Ex: Ali Niaz'),
             SizedBox(height: gape,),
-            const DataEntry(mainText: 'Description', hintText: 'Ex: Blue Pen')
+            const DataEntry(mainText: 'Customer Contact', hintText: '0323*******')
           ],),
         )
       ),
-    );
-  }
-}
-
-class PickImage extends StatefulWidget {
-  const PickImage({super.key});
-
-  @override
-  State<PickImage> createState() => _PickImageState();
-}
-
-class _PickImageState extends State<PickImage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 120,
-      width: 120,
-      decoration: BoxDecoration(
-        color: Colors.white, 
-        borderRadius: BorderRadius.circular(5),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 3)
-        ]
-      ),
-      alignment: Alignment.center,
-      child: Column(
-        children: const [
-          SizedBox(height: 15,),
-          Image(
-            width: 80, 
-            height: 80,
-            image: AssetImage('assets/Camera.png')),
-          Text('ADD IMAGE', style: mainTextStyle)
-        ],
-      )
     );
   }
 }

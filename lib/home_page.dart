@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:inventory_managnment_system/add_product.dart';
+import 'package:inventory_managnment_system/product_list.dart';
+import 'package:inventory_managnment_system/vendor_list.dart';
+
+import 'add_vendor.dart';
+import 'sale_product.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -26,18 +31,25 @@ class HomePage extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                      child: HomePageCard(
-                    widget: Column(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/delivery.png', color: Colors.white),
-                        ),
-                        SizedBox(height: gape),
-                        Expanded(child: Text('Product List', style: mainTextStyle)),
-                      ],
-                    ),
-                  )),
+                      child: InkWell(
+                        onTap:() => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context) => 
+                        ProductList(),)
+                      ),
+                        child: HomePageCard(
+                                          widget: Column(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset('assets/delivery.png', color: Colors.white),
+                          ),
+                          SizedBox(height: gape),
+                          Expanded(child: Text('Product List', style: mainTextStyle)),
+                        ],
+                                          ),
+                                        ),
+                      )),
                   SizedBox(width: gape),
                   Expanded(
                     child: InkWell(
@@ -67,45 +79,66 @@ class HomePage extends StatelessWidget {
               height: gape,
             ),
             Expanded(
-                child: HomePageCard(
-              widget: Column(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/delivery.png', color: Colors.white),
-                        ),
-                        SizedBox(height: gape),
-                        Expanded(child: Text('Product List', style: mainTextStyle)),
-                      ],
-                    ),
-            )),
+                child: InkWell(
+                  onTap:() => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context) => 
+                        SaleProduct(),)
+                      ),
+                  child: HomePageCard(
+                              widget: Column(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset('assets/delivery.png', color: Colors.white),
+                          ),
+                          SizedBox(height: gape),
+                          Expanded(child: Text('Sale Product', style: mainTextStyle)),
+                        ],
+                      ),
+                            ),
+                )),
             SizedBox(
               height: gape,
             ),
             Expanded(
                 child: Row(
               children: [
-                Expanded(child: HomePageCard(widget: Column(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/delivery.png', color: Colors.white),
-                        ),
-                        SizedBox(height: gape),
-                        Expanded(child: Text('Product List', style: mainTextStyle)),
-                      ],
-                    ),)),
+                Expanded(child: InkWell(
+                  onTap:() => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context) => 
+                        VendorList(),)
+                      ),
+                  child: HomePageCard(widget: Column(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset('assets/delivery.png', color: Colors.white),
+                          ),
+                          SizedBox(height: gape),
+                          Expanded(child: Text('Vendor List', style: mainTextStyle)),
+                        ],
+                      ),),
+                )),
                 SizedBox(width: gape),
-                Expanded(child: HomePageCard(widget: Column(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Image.asset('assets/delivery.png', color: Colors.white),
-                        ),
-                        SizedBox(height: gape),
-                        Expanded(child: Text('Product List', style: mainTextStyle)),
-                      ],
-                    ),))
+                Expanded(child: InkWell(
+                  onTap:() => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context) => 
+                        AddVendor(),)
+                      ),
+                  child: HomePageCard(widget: Column(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Image.asset('assets/delivery.png', color: Colors.white),
+                          ),
+                          SizedBox(height: gape),
+                          Expanded(child: Text('Add Vendor', style: mainTextStyle)),
+                        ],
+                      ),),
+                ))
               ],
             )),
           ],
